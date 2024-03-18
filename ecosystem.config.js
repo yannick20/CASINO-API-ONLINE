@@ -13,7 +13,7 @@ module.exports = {
       production : {
         user : 'root',
         host : '194.163.180.27',
-        ref  : 'origin/main',
+        ref  : 'origin/master',
         repo : 'https://github.com/NYOTA-PROJECTS/CASINO-API-ONLINE.git',
         path : '/root/api-casinomarket',
         'pre-deploy-local': '',
