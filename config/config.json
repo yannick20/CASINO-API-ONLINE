@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "u970228764_casino_dev_pro",
+    "password": "E4OvdWjrQWR1",
+    "database": "u970228764_casino_prod",
+    "host": "89.117.102.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "u970228764_casino_dev_tes",
+    "password": "E4OvdWjrQWR1",
+    "database": "u970228764_casino_test",
+    "host": "89.117.102.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "u970228764_casino_dev_pro",
+    "password": "E4OvdWjrQWR1",
+    "database": "u970228764_casino_prod",
+    "host": "89.117.102.1",
+    "dialect": "mysql"
+  }
+}
