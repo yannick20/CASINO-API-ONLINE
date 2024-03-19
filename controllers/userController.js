@@ -263,7 +263,7 @@ const registerWithAccount = async (req, res) => {
       });
     }
 
-    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: newUser.id }, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
 
     const userResponse = {
       firstName: newUser.firstName,
@@ -318,7 +318,7 @@ const updateProfileImage = async (req, res) => {
     let decodedToken;
 
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -532,7 +532,7 @@ const registerWithoutAccount = async (req, res) => {
     });
 
     // Génération du token JWT
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user.id }, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
 
     // Réponse avec les détails de l'utilisateur
     const userResponse = {
@@ -653,7 +653,7 @@ const login = async (req, res) => {
       });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user.id }, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
 
     const userCashback = await Cashback.findOne({
       where: { userId: user.id },
@@ -738,7 +738,7 @@ const getCashback = async (req, res) => {
     const userToken = token.substring(7);
     let decodedToken;
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -802,7 +802,7 @@ const updateCashbackLimit = async (req, res) => {
     const userToken = token.substring(7);
     let decodedToken;
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -872,7 +872,7 @@ const getCashbackLimit = async (req, res) => {
     const userToken = token.substring(7);
     let decodedToken;
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -956,7 +956,7 @@ const getTransactions = async (req, res) => {
     const userToken = token.substring(7);
     let decodedToken;
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1021,7 +1021,7 @@ const getSponsoredUsers = async (req, res) => {
     let decodedToken;
 
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1098,7 +1098,7 @@ const userVoucher = async (req, res) => {
     let decodedToken;
 
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1172,7 +1172,7 @@ const updateNotifToken = async (req, res) => {
     let decodedToken;
 
     try {
-      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1242,7 +1242,7 @@ const updatePassword = async (req, res) => {
 
     let decodedToken;
     try {
-      decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(token, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1318,7 +1318,7 @@ const getReferralCount = async (req, res) => {
 
     let decodedToken;
     try {
-      decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(token, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1380,7 +1380,7 @@ const getReferralAmount = async (req, res) => {
 
     let decodedToken;
     try {
-      decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(token, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res
@@ -1444,7 +1444,7 @@ const deleteAccount = async (req, res) => {
 
     let decodedToken;
     try {
-      decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      decodedToken = jwt.verify(token, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res

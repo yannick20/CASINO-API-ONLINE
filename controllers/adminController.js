@@ -25,7 +25,7 @@ const login = async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ id: admin.id }, process.env.JWT_SECRET);
+        const token = jwt.sign({ id: admin.id }, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
 
         const adminResponse = {
             email: admin.email,

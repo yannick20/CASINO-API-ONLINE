@@ -5,9 +5,6 @@ module.exports = {
       instances: 2,
       watch: '.',
       ignore_watch: ['node_modules', 'public'],
-    }, {
-      script: './service-worker/',
-      watch: ['./service-worker']
     }],
     deploy : {
       production : {

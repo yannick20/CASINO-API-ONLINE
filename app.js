@@ -53,7 +53,7 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
 // Charger les certificats SSL
-const privateKey = fs.readFileSync(
+/* const privateKey = fs.readFileSync(
   "/etc/letsencrypt/live/nyota-apps.com/privkey.pem",
   "utf8"
 );
@@ -61,7 +61,7 @@ const certificate = fs.readFileSync(
   "/etc/letsencrypt/live/nyota-apps.com/fullchain.pem",
   "utf8"
 );
-const credentials = { key: privateKey, cert: certificate };
+const credentials = { key: privateKey, cert: certificate }; */
 
 // Firebase cloud messaging initialisation
 admin.initializeApp({
@@ -173,11 +173,11 @@ app.use("/api/v1/transaction", transactionRoutes);
 app.use("/api/v1/statistic", statisticRoutes);
 
 // Créer le serveur HTTPS
-const httpsServer = https.createServer(credentials, app);
+//const httpsServer = https.createServer(credentials, app);
 
 
-/* // Démarrage serveur
-const PORT = process.env.PORT || 6004;
+// Démarrage serveur
+const PORT = 3680 || 6004;
 app.listen(PORT, () => {
   console.log(`
 =======================================================
@@ -188,10 +188,10 @@ app.listen(PORT, () => {
 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 =======================================================
 `)
-}); */
+});
 
 // Démarrage serveur
-const PORT = process.env.PORT || 6004;
+/* const PORT = process.env.PORT || 6004;
 httpsServer.listen(PORT, () => {
   console.log(`
 =======================================================
@@ -203,3 +203,4 @@ httpsServer.listen(PORT, () => {
 =======================================================
   `);
 });
+ */
