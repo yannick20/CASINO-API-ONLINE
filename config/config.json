@@ -1,23 +1,26 @@
 {
   "development": {
-    "username": "u970228764_casino_dev_pro",
-    "password": "E4OvdWjrQWR1",
-    "database": "u970228764_casino_prod",
-    "host": "89.117.102.1",
-    "dialect": "mysql"
+    "username": "admin",
+    "password": "NyotaAdmin@2023",
+    "database": "database_casino_dev",
+    "host": "194.163.180.27",
+    "dialect": "postgres",
+    "port": 32769
   },
   "test": {
-    "username": "u970228764_casino_dev_tes",
-    "password": "E4OvdWjrQWR1",
-    "database": "u970228764_casino_test",
-    "host": "89.117.102.1",
-    "dialect": "mysql"
+    "username": "admin",
+    "password": "NyotaAdmin@2023",
+    "database": "database_casino_test",
+    "host": "194.163.180.27",
+    "dialect": "postgres",
+    "port": 32769
   },
   "production": {
-    "username": "u970228764_casino_dev_pro",
-    "password": "E4OvdWjrQWR1",
-    "database": "u970228764_casino_prod",
-    "host": "89.117.102.1",
-    "dialect": "mysql"
+    "username": "admin",
+    "password": "NyotaAdmin@2023",
+    "database": "database_casino_prod",
+    "host": "194.163.180.27",
+    "dialect": "postgres",
+    "port": 32769
   }
 }
