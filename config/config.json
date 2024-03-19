@@ -2,7 +2,7 @@
   "development": {
     "username": "admin",
     "password": "NyotaAdmin@2023",
-    "database": "database_casino_dev",
+    "database": "database_casino_prod",
     "host": "194.163.180.27",
     "dialect": "postgres",
     "port": 32769

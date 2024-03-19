@@ -180,7 +180,7 @@ const loginCaisse = async (req, res) => {
     }
 
     // Générer un token JWT sans durée de vie spécifiée
-    const token = jwt.sign({ id: existingCaisse.id }, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
+    const token = jwt.sign({ id: existingCaisse.id }, process.env.JWT_SECRET);
 
     const setting = await Setting.findByPk(1);
     const cashbackAmount = setting ? setting.cashbackAmount : 0;

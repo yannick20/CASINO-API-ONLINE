@@ -48,7 +48,7 @@ module.exports = {
         allowNull: true,
       },
       paymentType: {
-        type: Sequelize.INTEGER(2),
+        type: Sequelize.INTEGER,
         allowNull: true,
         defaultValue: 1
       },
@@ -65,12 +65,12 @@ module.exports = {
         allowNull: true,
       },
       ticketAmount: {
-        type: Sequelize.DOUBLE(20, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
         defaultValue: 0
       },
       voucherAmount: {
-        type: Sequelize.DOUBLE(20, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
         defaultValue: 0,
       },
@@ -79,17 +79,17 @@ module.exports = {
         allowNull: false
       },
       ticketCashback: {
-        type: Sequelize.DOUBLE(20, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
         defaultValue: 0
       },
       cagnotte: {
-        type: Sequelize.DOUBLE(20, 2),
+        type: Sequelize.DOUBLE,
         allowNull: true,
         defaultValue: 0
       },
       state: {
-        type: Sequelize.INTEGER(1),
+        type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 1
       },

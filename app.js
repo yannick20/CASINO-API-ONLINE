@@ -69,7 +69,7 @@ admin.initializeApp({
 });
 
 // Mogan logger
-app.use(morgan("dev"));
+app.use(morgan("combined"));
 
 // Variable d'environnement à partir de .env
 dotenv.config();
@@ -177,7 +177,7 @@ app.use("/api/v1/statistic", statisticRoutes);
 
 
 // Démarrage serveur
-const PORT = 3680 || 6004;
+const PORT = process.env.PORT || 6004;
 app.listen(PORT, () => {
   console.log(`
 =======================================================

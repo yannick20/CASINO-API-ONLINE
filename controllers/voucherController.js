@@ -24,7 +24,7 @@ const getUserVoucher = async (req, res) => {
       const userToken = token.substring(7);
       let decodedToken;
       try {
-        decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
+        decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
       } catch (error) {
         if (error.name === "TokenExpiredError") {
           return res
@@ -101,7 +101,7 @@ const generateVoucher = async (req, res) => {
     const userToken = token.substring(7);
     let decodedToken;
     try {
-      decodedToken = jwt.verify(userToken, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
+      decodedToken = jwt.verify(userToken, process.env.JWT_SECRET);
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res.status(401).json({ status: "error", message: "TokenExpiredError" });

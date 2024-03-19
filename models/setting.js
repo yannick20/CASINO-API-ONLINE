@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Setting.init({
     cashbackAmount: {
-      type: DataTypes.DOUBLE(20, 2),
+      type: DataTypes.DOUBLE,
       defaultValue: 0
     },
     voucherDurate: {
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     voucherAmountMin: {
-      type: DataTypes.DOUBLE(20, 2),
+      type: DataTypes.DOUBLE,
       defaultValue: 0
     },
     voucherDay: {

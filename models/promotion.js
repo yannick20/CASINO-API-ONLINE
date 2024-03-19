@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     mediaType: {
-      type: DataTypes.INTEGER(1),
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
     },

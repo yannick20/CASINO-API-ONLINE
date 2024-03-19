@@ -23,7 +23,7 @@ const tokenCheck = async (req, res, next) => {
 
     let decodedToken;
     try {
-      decodedToken = jwt.verify(token, "EyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDc3Mz");
+      decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         return res

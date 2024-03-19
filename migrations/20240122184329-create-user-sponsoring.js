@@ -20,7 +20,7 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       amount: {
-        type: Sequelize.DOUBLE(20, 2),
+        type: Sequelize.DOUBLE,
         defaultValue: 0
       },
       createdAt: {

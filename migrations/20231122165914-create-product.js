@@ -48,7 +48,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       price: {
-        type: Sequelize.DOUBLE(10, 2),
+        type: Sequelize.DOUBLE,
         defaultValue: 0.00,
         allowNull: false
       },
