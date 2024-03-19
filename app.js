@@ -69,7 +69,7 @@ admin.initializeApp({
 });
 
 // Mogan logger
-app.use(morgan("combined"));
+app.use(morgan("dev"));
 
 // Variable d'environnement à partir de .env
 dotenv.config();

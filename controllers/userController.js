@@ -50,6 +50,13 @@ const userCheck = async (req, res) => {
       dialect: "mysql",
       database: "u970228764_staging",
       password: "ilove@You2",
+      port: 3306,
+      pool: {
+        max: 5, // Nombre maximal de connexions dans le pool
+        min: 0, // Nombre minimal de connexions dans le pool
+        acquire: 30000, // Timeout en millisecondes pour obtenir une connexion du pool
+        idle: 10000 // Timeout en millisecondes avant qu'une connexion inutilisée ne soit libérée
+      }
     });
 
     const [results] = await sequelizeSecondary.query(
