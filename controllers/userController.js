@@ -2,7 +2,7 @@ const sharp = require("sharp");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Sequelize = require("sequelize");
+const { Sequelize, QueryTypes } = require('sequelize');
 //const twilio = require("twilio");
 const { v4: uuidv4 } = require("uuid");
 const {
@@ -20,6 +20,15 @@ const authToken = "de90c1334e51e3d3d32d88dd9e9b074b";
 //const twilioClient = new twilio(accountSid, authToken);
 const fs = require("fs");
 const generatedSponsoringCode = require("../utils/sponsoringUtils");
+
+const sequelizeSecondary = new Sequelize({
+  username: "admin",
+  password: "NyotaAdmin@2023",
+  database: "database_casino_old",
+  host: "127.0.0.1",
+  dialect: "postgres",
+  port: 32769
+});
 
 const userCheck = async (req, res) => {
   try {
@@ -44,29 +53,16 @@ const userCheck = async (req, res) => {
       });
     }
 
-    const sequelizeSecondary = new Sequelize({
-      host: "89.117.102.1",
-      username: "u970228764_staging",
-      dialect: "mysql",
-      database: "u970228764_staging",
-      password: "ilove@You2",
-      port: 3306,
-      pool: {
-        max: 5, // Nombre maximal de connexions dans le pool
-        min: 0, // Nombre minimal de connexions dans le pool
-        acquire: 30000, // Timeout en millisecondes pour obtenir une connexion du pool
-        idle: 10000 // Timeout en millisecondes avant qu'une connexion inutilisée ne soit libérée
-      }
-    });
-
+    // Requête optimisée pour obtenir les détails de l'utilisateur depuis la base de données secondaire
     const [results] = await sequelizeSecondary.query(
       `SELECT c.first_name, c.last_name, ca.montant
-           FROM clients c
-           INNER JOIN cartes ca ON c.id = ca.client_id
-           WHERE c.phone = :phone LIMIT 1`,
+       FROM clients c
+       INNER JOIN cartes ca ON c.id = ca.client_id
+       WHERE c.phone = :phone
+       LIMIT 1`,
       {
         replacements: { phone },
-        type: Sequelize.QueryTypes.SELECT,
+        type: QueryTypes.SELECT,
       }
     );
 
