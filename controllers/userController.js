@@ -2,6 +2,7 @@ const sharp = require("sharp");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const moment = require('moment');
 const { Sequelize, QueryTypes } = require('sequelize');
 //const twilio = require("twilio");
 const { v4: uuidv4 } = require("uuid");
@@ -234,6 +235,18 @@ const registerWithAccount = async (req, res) => {
       });
     }
 
+    // Validation et formatage de la date de naissance
+    const formattedBirthday = birthday ? moment(birthday).format('YYYY-MM-DD') : null;
+
+    // Vérification de la validité de la date de naissance
+    if (birthday && !moment(formattedBirthday, 'YYYY-MM-DD', true).isValid()) {
+      return res.status(400).json({
+        status: "error",
+        message: "La date de naissance fournie est invalide.",
+      });
+    }
+
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const sponsoringCode = generatedSponsoringCode.generateSponsoringCode();
@@ -241,7 +254,7 @@ const registerWithAccount = async (req, res) => {
     const newUser = await User.create({
       firstName,
       lastName,
-      birthday: birthday || null,
+      birthday: formattedBirthday,
       phone,
       barcode: uuidv4(),
       password: hashedPassword,
