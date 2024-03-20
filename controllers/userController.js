@@ -454,15 +454,6 @@ const registerWithoutAccount = async (req, res) => {
       });
     }
 
-    // Vérification si le numéro de portable est associé à une carte de fidélité
-    const sequelizeSecondary = new Sequelize({
-      host: process.env.DB2_HOST,
-      username: process.env.DB2_USER,
-      dialect: "mysql",
-      database: process.env.DB2_NAME,
-      password: process.env.DB2_PASSWORD,
-    });
-
     const [results] = await sequelizeSecondary.query(
       `SELECT c.first_name, c.last_name, ca.montant FROM clients c INNER JOIN cartes ca ON c.id = ca.client_id WHERE c.phone = :phone LIMIT 1`,
       {
