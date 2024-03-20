@@ -2,8 +2,8 @@ const sharp = require("sharp");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const moment = require('moment');
-const { Sequelize, QueryTypes } = require('sequelize');
+const moment = require("moment");
+const { Sequelize, QueryTypes } = require("sequelize");
 //const twilio = require("twilio");
 const { v4: uuidv4 } = require("uuid");
 const {
@@ -28,7 +28,7 @@ const sequelizeSecondary = new Sequelize({
   database: "database_casino_old",
   host: "127.0.0.1",
   dialect: "postgres",
-  port: 5432
+  port: 5432,
 });
 
 const userCheck = async (req, res) => {
@@ -98,7 +98,7 @@ const userCheck = async (req, res) => {
 // Fonction pour envoyer l'OTP via Twilio
 async function sendOtpViaTwilio(phone, otp) {
   try {
-   /*  await twilioClient.messages
+    /*  await twilioClient.messages
       .create({
         body: `Votre code de vérification est : ${otp}`,
         from: "+13023062887",
@@ -235,15 +235,19 @@ const registerWithAccount = async (req, res) => {
       });
     }
 
-    // Validation et formatage de la date de naissance
-    const formattedBirthday = birthday ? moment(birthday).format('YYYY-MM-DD') : null;
+    let formattedBirthday = null;
 
-    // Vérification de la validité de la date de naissance
-    if (birthday && !moment(formattedBirthday, 'YYYY-MM-DD', true).isValid()) {
-      return res.status(400).json({
-        status: "error",
-        message: "La date de naissance fournie est invalide.",
-      });
+    if (birthday) {
+      // Validation et formatage de la date de naissance
+      formattedBirthday = moment(birthday, "DD/MM/YYYY", true).format("YYYY-MM-DD");
+
+      // Vérification de la validité de la date de naissance
+      if (!moment(formattedBirthday, "YYYY-MM-DD", true).isValid()) {
+        return res.status(400).json({
+          status: "error",
+          message: "La date de naissance fournie est invalide.",
+        });
+      }
     }
 
 
