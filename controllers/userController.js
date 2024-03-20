@@ -22,12 +22,12 @@ const fs = require("fs");
 const generatedSponsoringCode = require("../utils/sponsoringUtils");
 
 const sequelizeSecondary = new Sequelize({
-  username: "admin",
-  password: "NyotaAdmin@2023",
+  username: "postgres",
+  password: "Admin@Casino2024",
   database: "database_casino_old",
-  host: "194.163.180.27",
+  host: "127.0.0.1",
   dialect: "postgres",
-  port: 32769
+  port: 5432
 });
 
 const userCheck = async (req, res) => {
