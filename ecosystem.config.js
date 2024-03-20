@@ -2,7 +2,7 @@ module.exports = {
     apps : [{
       name: 'CASINO-SUPERMARKET',
       script: 'app.js',
-      instances: 2,
+      instances: 4,
       watch: '.',
       ignore_watch: ['node_modules', 'public'],
     }],
