@@ -1,26 +1,26 @@
 {
   "development": {
-    "username": "admin",
-    "password": "NyotaAdmin@2023",
+    "username": "postgres",
+    "password": "Admin@Casino2024",
     "database": "database_casino_prod",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 32769
+    "port": 5432
   },
   "test": {
-    "username": "admin",
-    "password": "NyotaAdmin@2023",
+    "username": "postgres",
+    "password": "Admin@Casino2024",
     "database": "database_casino_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 32769
+    "port": 5432
   },
   "production": {
-    "username": "admin",
-    "password": "NyotaAdmin@2023",
+    "username": "postgres",
+    "password": "Admin@Casino2024",
     "database": "database_casino_prod",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 32769
+    "port": 5432
   }
 }

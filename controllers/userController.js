@@ -25,7 +25,7 @@ const sequelizeSecondary = new Sequelize({
   username: "admin",
   password: "NyotaAdmin@2023",
   database: "database_casino_old",
-  host: "127.0.0.1",
+  host: "194.163.180.27",
   dialect: "postgres",
   port: 32769
 });
