@@ -239,7 +239,7 @@ const registerWithAccount = async (req, res) => {
 
     if (birthday) {
       // Validation et formatage de la date de naissance
-      formattedBirthday = moment(birthday, "DD/MM/YYYY", true).format("YYYY-MM-DD");
+      formattedBirthday = moment(birthday, "YYYY-MM-DD", true).format("YYYY-MM-DD");
 
       // Vérification de la validité de la date de naissance
       if (!moment(formattedBirthday, "YYYY-MM-DD", true).isValid()) {
@@ -249,7 +249,6 @@ const registerWithAccount = async (req, res) => {
         });
       }
     }
-
 
     const hashedPassword = await bcrypt.hash(password, 10);
 

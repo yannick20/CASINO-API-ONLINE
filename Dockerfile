@@ -24,7 +24,7 @@ RUN npx sequelize-cli db:seed:all --env development
 RUN npx sequelize-cli db:seed:all --env test
 
 # Exposer le port utilisé par l'application
-EXPOSE 6003
+EXPOSE 6004
 
 # Lancer l'application
 CMD ["npm", "start"]

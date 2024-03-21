@@ -1,5 +1,5 @@
-const { Op, fn } = require("sequelize");
 const { User, Transaction, sequelize, UserSponsoring } = require("../models");
+const { Op, fn } = require("sequelize");
 
 const getSubscriberCount = async (req, res) => {
     try {
@@ -183,16 +183,15 @@ const getCountUsersWithoutRecentTransactions = async (req, res) => {
                 {
                     model: Transaction,
                     as: "transactions",
-                    attributes: ["id"],
+                    attributes: [],
                     where: {
-                        userId: { [Op.eq]: fn("User.id") },
                         createdAt: { [Op.gte]: threeMonthsAgo },
                     },
                     required: false,
                 },
             ],
             where: {
-                "$transactions.id$": { [Op.is]: null },
+                '$transactions.id$': { [Op.is]: null },
             },
         });
 
