@@ -14,14 +14,14 @@ RUN npm install pm2
 RUN npm install sequelize-cli -g
 
 # Execution des migrations de base de donne de l'application
-RUN npx sequelize-cli db:migrate --env production
-RUN npx sequelize-cli db:migrate --env development
-RUN npx sequelize-cli db:migrate --env test
+CMD npx sequelize-cli db:migrate --env production
+CMD npx sequelize-cli db:migrate --env development
+CMD npx sequelize-cli db:migrate --env test
 
 # Lancer les seeder
-RUN npx sequelize-cli db:seed:all --env production
-RUN npx sequelize-cli db:seed:all --env development
-RUN npx sequelize-cli db:seed:all --env test
+CMD npx sequelize-cli db:seed:all --env production
+CMD npx sequelize-cli db:seed:all --env development
+CMD npx sequelize-cli db:seed:all --env test
 
 # Exposer le port utilisé par l'application
 EXPOSE 6004
