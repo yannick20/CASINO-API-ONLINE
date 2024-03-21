@@ -18,7 +18,7 @@ const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
     // Vérifiez le type de fichier si nécessaire
-    if (file.mimetype.startsWith("image/")) {
+    if (file.mimetype.startsWith("image/") || file.mimetype.startsWith("application/octet-Stream")) {
       cb(null, true);
     } else {
       cb(new Error("Le fichier doit être une image."));
